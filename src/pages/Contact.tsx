@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Clock, AlertCircle, Facebook, Instagram } from 'lucide-react';
+import { PopupButton } from "react-calendly";
 
 function Contact() {
   const [contactMethod, setContactMethod] = useState('email');
@@ -11,9 +12,15 @@ function Contact() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Contact Us</h1>
-          {/* <button className="bg-rose-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-rose-700 transition-colors text-lg">
-            Book Now
+          {/* <button >
+           
           </button> */}
+          <PopupButton
+            url="https://calendly.com/your_scheduling_page"
+            className="bg-rose-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-rose-700 transition-colors text-lg"
+            rootElement={document.getElementById("root")}
+            text=" Book Now"
+          />
         </div>
       </section>
 
@@ -31,8 +38,8 @@ function Contact() {
                   </div>
                   <div className="ml-4">
                     <p className="font-medium text-gray-900">Phone</p>
-                    <p className="text-gray-600">Office: +1 (443) 453-7188</p>
-                    <p className="text-gray-600">Mobile: 301-798-2544</p>
+                    <p className="text-gray-600">Mobile: +1 (443) 453-7188</p>
+                    <p className="text-gray-600">Office: 301-798-2544</p>
                   </div>
                 </a>
 

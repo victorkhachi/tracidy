@@ -12,14 +12,18 @@ function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
+      <section style={{
+        boxSizing: "border-box",
+        position: "relative",
+        width: "100%"
+}} className="pt-24 pb-12 pxS-4 sm:px-5 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Professional Home Care Services for Your Loved Ones
+          <div style={{position:"relative", height:"400px"}} className="grid md:grid-cols-2 gap-12 items-center">
+            <div style={{position:'relative',zIndex:"9"}} className='pl-4'>
+              <h1 className="text-4xl md:text-5xl font-bold text-yellow-900 leading-tight">
+                Compassionate Home Care Services for Your Loved Ones
               </h1>
-              <p className="mt-4 text-lg text-gray-600">
+              <p style={{textShadow:"0 0 white"}} className="mt-8 text-lg text-gray-900">
                 Providing compassionate and reliable home health care services to help maintain independence and quality of life.
               </p>
               <Link
@@ -29,8 +33,9 @@ function Home() {
                 Contact Us
               </Link>
             </div>
-            <div>
+            <div style={{width:"100%",position:"absolute",height:"100%",left:"0"}}>
               <img
+                style={{width:"100%",height:"100%"}}
                 src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
                 alt="Caring nurse with patient"
                 className="rounded-lg shadow-lg image-hover"
@@ -41,9 +46,9 @@ function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="services" className="py-16 pr-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Services</h2>
+          <h2 className="text-3xl font-bold text-center text-red-900 mb-12">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <Clock className="h-12 w-12 text-rose-600 mb-4" />
@@ -80,7 +85,7 @@ function App() {
               <div className="flex items-center">
                 <Link to="/" className="flex items-center">
                   <Heart className="h-8 w-8 text-rose-600" />
-                  <span className="ml-2 text-xl font-semibold text-gray-900">TracidyHomeCare</span>
+                  <span className="ml-2 text-xl font-semibold text-red-900">Tracidy Home Care</span>
                 </Link>
               </div>
               <div className="hidden md:flex space-x-8">
@@ -118,10 +123,10 @@ function App() {
             <div className="flex items-center justify-between md:justify-center flex-wrap gap-4">
               <div className="flex items-center">
                 <Heart className="h-8 w-8 text-rose-500" />
-                <span className="ml-2 text-xl font-semibold">TracidyHomeCare</span>
+                <span className="ml-2 text-xl font-semibold">Tracidy Home Care</span>
               </div>
               <div className="text-gray-400">
-                © 2024 TracidyHomeCare. All rights reserved.
+                © 2024 Tracidy Home Care. All rights reserved.
               </div>
               
                 <div className="flex space-x-4">
