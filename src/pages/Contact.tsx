@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Clock, AlertCircle, Facebook, Instagram } from 'lucide-react';
 
 function Contact() {
   const [contactMethod, setContactMethod] = useState('email');
-
+  const [mail, setMail] = useState({ name: "", email: "", phone: "",body:"" })
+  const link = useRef(null)
   return (
     <div className="pt-16">
       {/* Hero Section with Book Now */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Contact Us</h1>
-          <button className="bg-rose-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-rose-700 transition-colors text-lg">
+          {/* <button className="bg-rose-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-rose-700 transition-colors text-lg">
             Book Now
-          </button>
+          </button> */}
         </div>
       </section>
 
@@ -30,8 +31,8 @@ function Contact() {
                   </div>
                   <div className="ml-4">
                     <p className="font-medium text-gray-900">Phone</p>
-                    <p className="text-gray-600">Office: (555) 123-4567</p>
-                    <p className="text-gray-600">Mobile: (555) 987-6543</p>
+                    <p className="text-gray-600">Office: +1 (443) 453-7188</p>
+                    <p className="text-gray-600">Mobile: 301-798-2544</p>
                   </div>
                 </a>
 
@@ -52,9 +53,9 @@ function Contact() {
                   </div>
                   <div className="ml-4">
                     <p className="font-medium text-gray-900">Address</p>
-                    <p className="text-gray-600">123 Healthcare Avenue</p>
-                    <p className="text-gray-600">Suite 200</p>
-                    <p className="text-gray-600">Health City, HC 12345</p>
+                     <p className="text-gray-600">5137 CHARLINGTON CT
+                    FREDERICK MD 21703</p>
+                 
                   </div>
                 </div>
               </div>
@@ -70,7 +71,6 @@ function Contact() {
                 <div className="ml-4">
                   <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
                   <p className="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
-                  <p className="text-gray-600">Sunday: Closed</p>
                   <p className="mt-2 text-gray-700">24/7 Emergency Care Available</p>
                 </div>
               </div>
@@ -86,7 +86,7 @@ function Contact() {
                 <div className="ml-4">
                   <p className="text-gray-700">For emergencies, call our 24/7 hotline:</p>
                   <p className="text-rose-600 font-semibold text-lg">
-                    <a href="tel:+15559119111">(555) 911-9111</a>
+                    <a href="tel:+15559119111"> +1 (443) 453-7188</a>
                   </p>
                 </div>
               </div>
@@ -122,13 +122,18 @@ function Contact() {
             <p className="text-gray-600 mb-6">
               We typically respond within 24 hours during business hours.
             </p>
-            <form className="space-y-6">
+            <form onSubmit={(e)=>{
+              e.preventDefault()
+
+            }} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Name
                 </label>
                 <input
+                  onChange={(e) => setMail({ ...mail, [e.target.name]: e.target.value })}
                   type="text"
+                  name='name'
                   id="name"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
                   required
@@ -141,6 +146,8 @@ function Contact() {
                 </label>
                 <input
                   type="email"
+                  name='email'
+                  onChange={(e) => setMail({ ...mail, [e.target.name]: e.target.value })}
                   id="email"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
                   required
@@ -153,6 +160,8 @@ function Contact() {
                 </label>
                 <input
                   type="tel"
+                  name='phone'
+                  onChange={(e) => setMail({ ...mail, [e.target.name]: e.target.value })}
                   id="phone"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
                   required
@@ -179,6 +188,7 @@ function Contact() {
                     <input
                       type="radio"
                       name="contactMethod"
+
                       value="phone"
                       checked={contactMethod === 'phone'}
                       onChange={(e) => setContactMethod(e.target.value)}
@@ -195,14 +205,22 @@ function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name='body'
+                  onChange={(e) => setMail({ ...mail, [e.target.name]: e.target.value })}
                   rows={4}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-rose-500 focus:ring-rose-500"
                   required
                 ></textarea>
               </div>
+              <a ref={link} href={`mailto:support@tracidyhomecare.com?subject=Subscription&body=name:${mail.name} mail:${mail.email}  phone:${mail.phone} \n\n ${mail.body} \n contactType: contact me by ${contactMethod}`}></a>
 
               <button
                 type="submit"
+                onClick={(e) => {
+                  e.preventDefault(); if (mail.body && mail.email && mail.name) {
+                    link?.current.click()
+                  }
+                }}
                 className="w-full bg-rose-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-rose-700 transition-colors"
               >
                 Send Message

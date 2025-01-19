@@ -1,8 +1,12 @@
-import React from 'react';
-import { Heart, Clock, Shield, Users } from 'lucide-react';
+
+import { Clock, Facebook, Instagram, Shield, Users } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { Heart, Menu } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import { MobileNav } from './components/MobileNav';
 
 function Home() {
   return (
@@ -13,7 +17,7 @@ function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Compassionate Home Care Services for Your Loved Ones
+                Professional Home Care Services for Your Loved Ones
               </h1>
               <p className="mt-4 text-lg text-gray-600">
                 Providing compassionate and reliable home health care services to help maintain independence and quality of life.
@@ -64,6 +68,8 @@ function Home() {
 }
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <Router>
       <div className="min-h-screen bg-white">
@@ -83,9 +89,22 @@ function App() {
                 <a href="#services" className="text-gray-700 hover:text-rose-600">Services</a>
                 <Link to="/contact" className="text-gray-700 hover:text-rose-600">Contact</Link>
               </div>
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="h-6 w-6 text-gray-600" />
+              </button>
             </div>
           </div>
         </nav>
+
+        {/* Mobile Navigation */}
+        <MobileNav
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -96,7 +115,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between md:justify-center flex-wrap gap-4">
               <div className="flex items-center">
                 <Heart className="h-8 w-8 text-rose-500" />
                 <span className="ml-2 text-xl font-semibold">TracidyHomeCare</span>
@@ -104,6 +123,26 @@ function App() {
               <div className="text-gray-400">
                 © 2024 TracidyHomeCare. All rights reserved.
               </div>
+              
+                <div className="flex space-x-4">
+                  <a
+                    href="https://facebook.com/tracidyhomecare"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-rose-100 p-3 rounded-full hover:bg-rose-200 transition-colors"
+                  >
+                    <Facebook className="h-6 w-6 text-rose-600" />
+                  </a>
+                  <a
+                    href="https://instagram.com/tracidyhomecare"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-rose-100 p-3 rounded-full hover:bg-rose-200 transition-colors"
+                  >
+                    <Instagram className="h-6 w-6 text-rose-600" />
+                  </a>
+                </div>
+          
             </div>
           </div>
         </footer>
