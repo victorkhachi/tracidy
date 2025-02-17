@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { MobileNav } from './components/MobileNav';
+import Logo from "./asset/logo.png"
 
 function Home() {
   return (
@@ -84,7 +85,9 @@ function App() {
             <div className="flex justify-between h-16 items-center">
               <div className="flex items-center">
                 <Link to="/" className="flex items-center">
-                  <Heart className="h-8 w-8 text-rose-600" />
+                  <div style={{width:"70px"}}>
+                      <img style={{width:"100%"}} src={Logo} alt="" />
+                  </div>
                   <span className="ml-2 text-xl font-semibold text-red-900">Tracidy Home Care</span>
                 </Link>
               </div>
@@ -122,7 +125,9 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between md:justify-center flex-wrap gap-4">
               <div className="flex items-center">
-                <Heart className="h-8 w-8 text-rose-500" />
+                <div style={{ width: "70px" }}>
+                  <img style={{ width: "100%" }} src={Logo} alt="" />
+                </div>
                 <span className="ml-2 text-xl font-semibold">Tracidy Home Care</span>
               </div>
               <div className="text-gray-400">

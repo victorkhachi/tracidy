@@ -16,7 +16,7 @@ function Contact() {
            
           </button> */}
           <PopupButton
-            url="https://calendly.com/your_scheduling_page"
+            url="https://calendly.com/tracidyhomecare/30min"
             className="bg-rose-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-rose-700 transition-colors text-lg"
             rootElement={document.getElementById("root")}
             text=" Book Now"
