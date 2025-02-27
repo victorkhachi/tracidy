@@ -18,7 +18,7 @@ function About() {
               <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                 We take pride in our commitment to maintaining the highest standards of care while fostering independence, dignity, and quality of life for every client we serve.
               </p>
-              <p style={{color:'red'}}>Although many people we help are seniors living at home, Assisting Hands® Home Care assists people of all ages, in many situations:</p>
+              <p style={{color:'red'}}>Although many people we help are seniors living at home, Tracidy Home Care assists people of all ages, in many situations:</p>
               <p>
                 <ul>
                   <li>-  post hospitalization or surgery assistance, when walking, standing or driving may be difficult</li>
