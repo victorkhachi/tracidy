@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { MobileNav } from './components/MobileNav';
 import Logo from "./asset/logo.png"
+import Service from './pages/Service';
 
 function Home() {
   return (
@@ -94,7 +95,7 @@ function App() {
               <div className="hidden md:flex space-x-8">
                 <Link to="/" className="text-gray-700 hover:text-rose-600">Home</Link>
                 <Link to="/about" className="text-gray-700 hover:text-rose-600">About</Link>
-                <a href="#services" className="text-gray-700 hover:text-rose-600">Services</a>
+                <Link to="/services" className="text-gray-700 hover:text-rose-600">Services</Link>
                 <Link to="/contact" className="text-gray-700 hover:text-rose-600">Contact</Link>
               </div>
               <button
@@ -118,6 +119,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Service />} />
         </Routes>
 
         {/* Footer */}
